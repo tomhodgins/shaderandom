@@ -1,4 +1,4 @@
-# Randomly Generated Shaders
+# Randomly Generates Shaders
 
 ## Linear Gradient
 
@@ -294,7 +294,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
 }
 ```
 
-Too Much Acid
+## Too Much Acid
 
 ```
 void mainImage(out vec4 fragColor, in vec2 fragCoord){
@@ -446,9 +446,9 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
 }
 ```
 
-## Scorched Earth:
+## Scorched Earth
 
-``
+```
 void mainImage(out vec4 fragColor, in vec2 fragCoord){
   fragColor = min(step(normalize(acos(fract(min(max(step(vec4(0.6, 1.9, 1.1, max((1.9 - max(sqrt(1.7), float(iFrame))), mod((gl_FragCoord.x / iResolution.x), (sin(1.3) + ((gl_FragCoord.y / iResolution.y) * 1.3))))), mod(asin(cos(vec4(sin(log2(1.5)), 1.7, (gl_FragCoord.x / iResolution.x), ((exp2((0.4 * ((0.9 * 0.0) + acos(min(0.3, 1.9))))) - 1.7) / 0.4)))), vec4((1.0 - (gl_FragCoord.x / iResolution.x)), float(iFrame), 1.2, (0.4 - (0.1 - floor((1.7 / 1.5))))))), degrees(vec4(1.7, 0.2, (0.5 * 1.4), 1.7))), sin(vec4(0.4, float(iFrame), 0.0, reflect((gl_FragCoord.x / iResolution.x), 0.8))))))), mod(max(step(pow(pow(max(vec4(0.4, (gl_FragCoord.y / iResolution.y), step(((gl_FragCoord.x / iResolution.x) - 1.0), 1.4), (0.2 / 1.2)), abs(reflect(vec4((0.9 / 0.1), (1.1 / 1.3), (gl_FragCoord.y / iResolution.y), iGlobalTime), reflect(tan(log2(vec4(1.8, fract(1.6), float(iFrame), float(iFrame)))), vec4(1.7, (inversesqrt(float(iFrame)) / 0.3), 0.6, log(0.8)))))), log2(vec4(0.0, 0.2, 0.0, 1.8))), step(exp(vec4(1.6, 0.2, 1.1, (gl_FragCoord.x / iResolution.x))), reflect(sign(vec4(reflect(0.8, iGlobalTime), acos(0.7), 0.1, 0.4)), vec4(abs(float(iFrame)), pow(1.6, 0.4), (0.0 - (iGlobalTime + iGlobalTime)), 0.9)))), atan(vec4((gl_FragCoord.x / iResolution.x), mod((0.4 * 0.9), ((1.2 / 1.0) * 1.3)), (1.8 * iGlobalTime), 0.4))), asin(min(vec4(1.8, iGlobalTime, (0.1 + 0.8), 0.8), vec4(0.4, 0.8, iGlobalTime, 0.9)))), atan(vec4(0.6, (((gl_FragCoord.y / iResolution.y) * 1.8) * float(iFrame)), 1.3, 0.6), normalize(mod(vec4(1.0, reflect(0.6, (gl_FragCoord.x / iResolution.x)), (gl_FragCoord.y / iResolution.y), 0.4), min(vec4((cos((gl_FragCoord.y / iResolution.y)) * 0.5), log2(0.9), fract(0.4), float(iFrame)), vec4(0.3, float(iFrame), 0.7, (gl_FragCoord.x / iResolution.x)))))))), exp2(max(vec4(max((0.5 / (gl_FragCoord.y / iResolution.y)), 0.2), 0.4, float(iFrame), 0.2), vec4(0.8, 0.2, 0.4, 1.3))));
 }
