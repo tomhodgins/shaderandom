@@ -527,6 +527,41 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
 }
 </pre>
 
+<h2>Green Gradient</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){fragColor = vec4(((gl_FragCoord.y / iResolution.y) / iGlobalTime), (0.8 / 1.3), 0.2, (gl_FragCoord.x / iResolution.x));}
+</pre>
+
+<h2>Turquoise Pillars</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){fragColor = vec4(mod(1.6, (gl_FragCoord.x / iResolution.x)), 1.2, float(iFrame), 1.3);}
+</pre>
+
+<h2>Blue Red Curve</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){fragColor = vec4(atan(0.6), (gl_FragCoord.y / iResolution.y), ((gl_FragCoord.y / iResolution.y) / (gl_FragCoord.x / iResolution.x)), (gl_FragCoord.x / iResolution.x));}
+</pre>
+
+<h2>Beautiful Blue Gradient (really nice)</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){fragColor = vec4(acos(1.6), (gl_FragCoord.x / iResolution.x), float(iFrame), iGlobalTime);}
+</pre>
+
+<h2>Square tunnel</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){fragColor = vec4((float(iFrame) + (gl_FragCoord.y / iResolution.y)), mod(min((1.3 / 0.6), (2.6 * ((min(float(iFrame), (gl_FragCoord.x / iResolution.x)) * (2.5 / (iGlobalTime / (gl_FragCoord.x / iResolution.x)))) * (gl_FragCoord.y / iResolution.y)))), (gl_FragCoord.y / iResolution.y)), 2.1, 1.9);}
+</pre>
+
+<h2>Saturns Rings</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){fragColor = vec4((gl_FragCoord.y / iResolution.y), (gl_FragCoord.y / iResolution.y), tan(tan(((float(iFrame) * 1.8) / (min(atan((gl_FragCoord.x / iResolution.x), (gl_FragCoord.y / iResolution.y)), 2.5) + (gl_FragCoord.y / iResolution.y))))), 2.6);}
+</pre>
+
+<h2>Pretty Gradient</h2>
+<pre>
+fragColor = vec4(0.7, (gl_FragCoord.x / iResolution.x), ((gl_FragCoord.y / iResolution.y) / ((gl_FragCoord.x / iResolution.x) / (gl_FragCoord.y / iResolution.y))), 0.9);
+</pre>
+
 <link href=http://staticresource.s3.amazonaws.com/template/css/basic.css rel=stylesheet>
 <link href=http://staticresource.com/data-buttons.css rel=stylesheet>
 <style>a { font-size: 14pt; }</style>
@@ -538,7 +573,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
     shader = shader.slice(57) // trim void mainImage(…){
     shader = shader.slice(0,shader.length-2) // trim last }
     shader = btoa(shader) // convert to hash for URL
-    var link = ('Preview '+title).link('http://xem.github.io/shaderandom/iframe.html#'+shader)
+    var link = ('Preview '+title).link('http://tomhodgins.github.io/shaderandom/toyshader.html#'+shader)
     pre[i].insertAdjacentHTML('beforeBegin',link)
   }
 </script>
