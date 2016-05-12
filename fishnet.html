@@ -184,7 +184,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
 }
 </pre>
 
-<h2>Green to Olive Gradient:
+<h2>Green to Olive Gradient</h2>
 <pre>
 void mainImage(out vec4 fragColor, in vec2 fragCoord){
   fragColor = (vec4((gl_FragCoord.x / iResolution.x), 1.2, 1.0, (gl_FragCoord.x / iResolution.x)) * 0.4);
@@ -198,8 +198,8 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
 }
 </pre>
 
-<h2>Purple to Blue:
-```
+<h2>Purple to Blue</h2>
+<pre>
 void mainImage(out vec4 fragColor, in vec2 fragCoord){
   fragColor = (vec4(atan(((gl_FragCoord.y / iResolution.y) + 0.0), inversesqrt(0.9)), asin(0.4), min(1.6, 0.9), (gl_FragCoord.x / iResolution.x)) * 0.5);
 }
@@ -524,6 +524,55 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
 <pre>
 void mainImage(out vec4 fragColor, in vec2 fragCoord){
   fragColor = min(vec4(log2(0.8), 1.1, iGlobalTime, 0.1), reflect(mod(vec4(1.6, iGlobalTime, (gl_FragCoord.x / iResolution.x), (sin(0.1) * 0.9)), reflect(step(vec4((0.4 / (cos((0.8 - ((gl_FragCoord.y / iResolution.y) + 1.9))) / 0.8)), ((gl_FragCoord.y / iResolution.y) / max(((float(iFrame) * 1.5) - float(iFrame)), sqrt(1.8))), (1.7 * (gl_FragCoord.y / iResolution.y)), 0.1), acos(atan(vec4(1.9, pow(0.3, max(1.8, (1.4 * 0.3))), iGlobalTime, step(atan(float(iFrame), (gl_FragCoord.x / iResolution.x)), (gl_FragCoord.x / iResolution.x))), asin(vec4((gl_FragCoord.x / iResolution.x), ((gl_FragCoord.x / iResolution.x) - mod(((1.9 / 0.6) + (gl_FragCoord.y / iResolution.y)), (log2(0.6) / 0.4))), iGlobalTime, 0.1))))), mod(exp2(fract(vec4(float(iFrame), (1.9 - inversesqrt(1.2)), sign((gl_FragCoord.x / iResolution.x)), pow(0.9, (0.5 + (0.0 * 1.2)))))), vec4(inversesqrt((((0.2 - (0.0 / iGlobalTime)) - 1.2) - 1.9)), iGlobalTime, float(iFrame), 0.5)))), vec4(abs((0.6 - 1.2)), 1.4, 1.3, tan(0.9))));
+}
+</pre>
+
+<h2>Green Gradient</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(((gl_FragCoord.y / iResolution.y) / iGlobalTime), (0.8 / 1.3), 0.2, (gl_FragCoord.x / iResolution.x));
+}
+</pre>
+
+<h2>Turquoise Pillars</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(mod(1.6, (gl_FragCoord.x / iResolution.x)), 1.2, float(iFrame), 1.3);
+}
+</pre>
+
+<h2>Blue Red Curve</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(atan(0.6), (gl_FragCoord.y / iResolution.y), ((gl_FragCoord.y / iResolution.y) / (gl_FragCoord.x / iResolution.x)), (gl_FragCoord.x / iResolution.x));
+}
+</pre>
+
+<h2>Beautiful Blue Gradient (really nice)</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(acos(1.6), (gl_FragCoord.x / iResolution.x), float(iFrame), iGlobalTime);
+}
+</pre>
+
+<h2>Square tunnel</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4((float(iFrame) + (gl_FragCoord.y / iResolution.y)), mod(min((1.3 / 0.6), (2.6 * ((min(float(iFrame), (gl_FragCoord.x / iResolution.x)) * (2.5 / (iGlobalTime / (gl_FragCoord.x / iResolution.x)))) * (gl_FragCoord.y / iResolution.y)))), (gl_FragCoord.y / iResolution.y)), 2.1, 1.9);
+}
+</pre>
+
+<h2>Saturns Rings</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4((gl_FragCoord.y / iResolution.y), (gl_FragCoord.y / iResolution.y), tan(tan(((float(iFrame) * 1.8) / (min(atan((gl_FragCoord.x / iResolution.x), (gl_FragCoord.y / iResolution.y)), 2.5) + (gl_FragCoord.y / iResolution.y))))), 2.6);
+}
+</pre>
+
+<h2>Pretty Gradient</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(0.7, (gl_FragCoord.x / iResolution.x), ((gl_FragCoord.y / iResolution.y) / ((gl_FragCoord.x / iResolution.x) / (gl_FragCoord.y / iResolution.y))), 0.9);
 }
 </pre>
 
