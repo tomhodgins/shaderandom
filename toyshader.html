@@ -1,0 +1,13 @@
+<body style=margin:0>
+<canvas id=a>
+<script>
+  seed =
+atob(location.hash.slice(1)) || "fragColor = vec4((((1.4 / 1.8) - 0.3) / 0.9), (gl_FragCoord.x / iResolution.x), 1.7, 1.4);";
+
+  a.width=innerWidth;
+  a.height=innerHeight;
+
+  g=a.getContext("webgl");P=g.createProgram();g.shaderSource(S=g.createShader(g.VERTEX_SHADER),"attribute vec2 P;void main(){gl_Position=vec4(P,0,1);}");g.compileShader(S);g.attachShader(P,S);console.log("precision mediump float;uniform float iGlobalTime, iFrame;uniform vec2 iResolution;void main(){"+seed+"}");
+  g.shaderSource(S=g.createShader(g.FRAGMENT_SHADER),"precision mediump float;uniform float iGlobalTime, iFrame;uniform vec2 iResolution;void main(){"+seed.replace("fragColor","gl_FragColor")+"}");g.compileShader(S);g.attachShader(P,S);g.linkProgram(P);g.useProgram(P);g.bindBuffer(B=g.ARRAY_BUFFER,g.createBuffer());g.enableVertexAttribArray(0);g.vertexAttribPointer(0,2,g.BYTE,0,0,0);g.bufferData(B,new Int8Array([-3,1,1,-3,1,1]),g.STATIC_DRAW);F=T=0;
+  (L=function(){g.uniform1f(g.getUniformLocation(P,"iGlobalTime"),T+=.016);g.uniform1f(g.getUniformLocation(P,"iFrame"),F++);g.uniform2f(g.getUniformLocation(P,"iResolution"),640,360);g.drawArrays(g.TRIANGLE_FAN,0,3);requestAnimationFrame(L)})();
+</script>
