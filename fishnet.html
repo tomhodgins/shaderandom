@@ -185,7 +185,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
 </pre>
 
 <h2>Green to Olive Gradient:
-```
+<pre>
 void mainImage(out vec4 fragColor, in vec2 fragCoord){
   fragColor = (vec4((gl_FragCoord.x / iResolution.x), 1.2, 1.0, (gl_FragCoord.x / iResolution.x)) * 0.4);
 }
