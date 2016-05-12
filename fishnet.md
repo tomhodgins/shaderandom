@@ -1,4 +1,4 @@
-# Randomly Generates Shaders
+# Randomly Generated Shaders
 
 ## Linear Gradient
 
