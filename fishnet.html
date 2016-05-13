@@ -1,5 +1,11 @@
 <html data-theme=code>
-
+<head>
+  <meta charset=utf-8>
+  <title>Fishnet • Randomly Generated WebGL Shaders</title>
+  <link href=http://staticresource.s3.amazonaws.com/template/css/basic.css rel=stylesheet>
+  <link href=http://staticresource.com/data-buttons.css rel=stylesheet>
+  <style>a { font-size: 14pt; }</style>
+</head>
 <h1>The Fishnet</h1>
 <br>
 <h2>Linear Gradient</h2>
@@ -575,10 +581,6 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
   fragColor = vec4(0.7, (gl_FragCoord.x / iResolution.x), ((gl_FragCoord.y / iResolution.y) / ((gl_FragCoord.x / iResolution.x) / (gl_FragCoord.y / iResolution.y))), 0.9);
 }
 </pre>
-
-<link href=http://staticresource.s3.amazonaws.com/template/css/basic.css rel=stylesheet>
-<link href=http://staticresource.com/data-buttons.css rel=stylesheet>
-<style>a { font-size: 14pt; }</style>
 <script>
   var pre = document.getElementsByTagName('pre')
   for (i=0;i<pre.length;i++){
@@ -591,3 +593,5 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
     pre[i].insertAdjacentHTML('beforeBegin',link)
   }
 </script>
+</body>
+</html>
