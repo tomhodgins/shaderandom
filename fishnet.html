@@ -449,7 +449,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
 }
 </pre>
 
-<h2>Multiply gradients</h2>
+<h2>Multiply Gradients</h2>
 <pre>
 void mainImage(out vec4 fragColor, in vec2 fragCoord){
   fragColor = mod(reflect(vec4(1.6, (1.1 - 0.7), (1.4 - sin(1.1)), (gl_FragCoord.x / iResolution.x)), step(step(sign(atan(step(vec4(1.6, 0.7, 0.6, (gl_FragCoord.y / iResolution.y)), min(vec4(0.3, ((gl_FragCoord.y / iResolution.y) * 0.8), (gl_FragCoord.y / iResolution.y), 1.2), vec4(exp2((0.0 - 0.5)), 1.6, 0.8, 1.0))), vec4(1.0, (gl_FragCoord.x / iResolution.x), (gl_FragCoord.x / iResolution.x), (gl_FragCoord.x / iResolution.x)))), reflect(log2(log2(vec4(float(iFrame), ((gl_FragCoord.y / iResolution.y) - (iGlobalTime * 1.7)), (gl_FragCoord.y / iResolution.y), step(0.0, (gl_FragCoord.x / iResolution.x))))), log2(vec4(0.7, 0.9, (1.1 * 1.4), 0.0)))), vec4(ceil((cos(float(iFrame)) * 0.8)), iGlobalTime, 0.1, 1.5))), vec4(1.6, 1.8, iGlobalTime, (gl_FragCoord.x / iResolution.x)));
@@ -581,6 +581,98 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord){
   fragColor = vec4(0.7, (gl_FragCoord.x / iResolution.x), ((gl_FragCoord.y / iResolution.y) / ((gl_FragCoord.x / iResolution.x) / (gl_FragCoord.y / iResolution.y))), 0.9);
 }
 </pre>
+
+<h2>Purple Swing</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(atan((gl_FragCoord.x / iResolution.x)), pow((((asin((gl_FragCoord.x / iResolution.x)) / (iGlobalTime * mod(iGlobalTime, 1.9))) / 0.3) / 2.1), (0.5 / (gl_FragCoord.y / iResolution.y))), (gl_FragCoord.x / iResolution.x), (2.4 + iGlobalTime));
+}
+</pre>
+
+<h2>Gay Batcave</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(2.4, 0.2, pow(0.8, sin(mod((iGlobalTime + 1.3), min((gl_FragCoord.y / iResolution.y), float(iFrame))))), ((gl_FragCoord.y / iResolution.y) + 2.1));
+}
+</pre>
+
+<h2>Yellow Wall</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4((2.1 + float(iFrame)), iGlobalTime, ((gl_FragCoord.y / iResolution.y) + mod(iGlobalTime, max(cos(2.7), (gl_FragCoord.x / iResolution.x)))), (((float(iFrame) / 1.4) / (iGlobalTime / (gl_FragCoord.x / iResolution.x))) * 2.7));
+}
+</pre>
+
+<h2>Purple Waves</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(mod((gl_FragCoord.y / iResolution.y), pow((gl_FragCoord.x / iResolution.x), (gl_FragCoord.y / iResolution.y))), 0.3, float(iFrame), (((fract(float(iFrame)) + 1.9) / 1.7) + (gl_FragCoord.x / iResolution.x)));
+}
+</pre>
+
+<h2>GREY!</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4((gl_FragCoord.y / iResolution.y), (gl_FragCoord.y / iResolution.y), (gl_FragCoord.y / iResolution.y), mod(2.2, iGlobalTime));
+}
+</pre>
+
+<h2>Smoothest Curve</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(2.1, (0.7 / (0.7 + 2.5)), (iGlobalTime + 2.9), ((gl_FragCoord.y / iResolution.y) * ((gl_FragCoord.y / iResolution.y) / (gl_FragCoord.x / iResolution.x))));
+}
+</pre>
+
+<h2>Neon Ceiling</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(mod((1.4 * (exp(1.2) / (gl_FragCoord.y / iResolution.y))), (gl_FragCoord.y / iResolution.y)), (1.3 / 0.4), 0.2, reflect(1.6, 0.4));
+}
+</pre>
+
+<h2>Purple Lines</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(1.3, mod(float(iFrame), (2.7 + (gl_FragCoord.x / iResolution.x))), ((gl_FragCoord.x / iResolution.x) * iGlobalTime), iGlobalTime);
+}
+</pre>
+
+<h2>Blue Plateau</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(0.0, (float(iFrame) + (gl_FragCoord.y / iResolution.y)), float(iFrame), max(((atan((acos((max((gl_FragCoord.y / iResolution.y), (gl_FragCoord.x / iResolution.x)) + min((gl_FragCoord.y / iResolution.y), ((2.5 + float(iFrame)) + 0.1)))) / (atan((gl_FragCoord.y / iResolution.y), min(1.3, (gl_FragCoord.y / iResolution.y))) * (gl_FragCoord.y / iResolution.y))), 0.5) + max(float(iFrame), 1.1)) + 0.0), pow(mod((gl_FragCoord.x / iResolution.x), 1.3), 1.4)));
+}
+</pre>
+
+<h2>BluePurple Repeater</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4((0.6 + (tan(((iGlobalTime * 2.9) + ((gl_FragCoord.x / iResolution.x) + 0.5))) * atan(pow((gl_FragCoord.x / iResolution.x), float(iFrame)), cos(iGlobalTime)))), ((gl_FragCoord.y / iResolution.y) / 2.9), 2.1, 2.3);
+}
+</pre>
+
+<h2>Pink and Yellow Fan</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(1.8, (gl_FragCoord.x / iResolution.x), mod(((1.6 * mod((gl_FragCoord.y / iResolution.y), (((gl_FragCoord.x / iResolution.x) + (2.9 + (gl_FragCoord.y / iResolution.y))) + 1.9))) * 0.9), (gl_FragCoord.x / iResolution.x)), 0.3);
+}
+</pre>
+
+<h2>Stripes</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(float(iFrame), (gl_FragCoord.x / iResolution.x), 2.8, (degrees(acos(0.5)) / cos((2.6 * (0.0 + ((2.4 + (iGlobalTime + 2.1)) / inversesqrt(((gl_FragCoord.x / iResolution.x) / 0.6))))))));
+}
+</pre>
+
+<h2>Spokes</h2>
+<pre>
+void mainImage(out vec4 fragColor, in vec2 fragCoord){
+  fragColor = vec4(fract(((0.9 / (gl_FragCoord.y / iResolution.y)) - (0.6 / (((iGlobalTime * 1.4) + (gl_FragCoord.x / iResolution.x)) - 0.8)))), 0.8, reflect((gl_FragCoord.y / iResolution.y), (step(sign((0.4 * degrees(iGlobalTime))), (gl_FragCoord.y / iResolution.y)) / 1.2)), 1.2);
+}
+</pre>
+
 <script>
   var pre = document.getElementsByTagName('pre')
   for (i=0;i<pre.length;i++){
