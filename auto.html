@@ -6,9 +6,14 @@
   var seed = atob(location.hash.slice(1)) || "fragColor = VEC4;";
 
   // Measure changes
-  var numPoints = 30,
-      tolerance = 175,
+  var numPoints = 20,
+      tolerance = 125,
       failed = 0
+
+  var start=[],
+      finish=[],
+      diff=[],
+      pass=[]
 
   // Generate shader
 
@@ -31,11 +36,6 @@
 
   onload = generate = function(){
 
-    var start=[],
-        finish=[],
-        diff=[],
-        pass=[]
-
     a.width=innerWidth;
     a.height=innerHeight;
 
@@ -48,7 +48,7 @@
     seed = seed.replace(/FLOAT/g, function(){return Math.floor(Math.random()*2) + "." + Math.floor(Math.random()*10)});
 
     // Reset seed if it's too simple or too long
-    if((oldseed == seed && seed.length < 90) || seed.length > 1000){
+    if((oldseed == seed && seed.length < 90) || seed.length > 500){
       seed = "fragColor = VEC4;";
     }
 
@@ -57,8 +57,13 @@
       setTimeout(generate);
     } else {
 
+      start=[],
+      finish=[],
+      diff=[],
+      pass=[]
+
       // Use generated shader
-      g=a.getContext("webgl");
+      g=a.getContext("webgl",{preserveDrawingBuffer: true});
       P=g.createProgram();
       g.shaderSource(S=g.createShader(g.VERTEX_SHADER),"attribute vec2 P;void main(){gl_Position=vec4(P,0,1);}");g.compileShader(S);g.attachShader(P,S);//console.log("precision mediump float;uniform float iGlobalTime, iFrame;uniform vec2 iResolution;void main(){"+seed+"}");
       g.shaderSource(S=g.createShader(g.FRAGMENT_SHADER),"precision mediump float;uniform float iGlobalTime, iFrame;uniform vec2 iResolution;void main(){"+seed.replace("fragColor","gl_FragColor")+"}");
@@ -79,52 +84,51 @@
         requestAnimationFrame(L)
       })();
 
-      setTimeout(sample(start),500)
-      setTimeout(function(){
-        sample(finish);
-        measure()
-      },2000)
-
-      function sample(name){
-        for(i=0;i<100;i++){
-          var x = ~~(i%10*(a.width/9.005)),
-              y = ~~(~~(i/10)*(a.height/9.005)),
-              pixel = new Uint8Array(4);
-          g.readPixels(x,y,1,1,g.RGBA,g.UNSIGNED_BYTE,pixel)
-          var data = pixel[0]+pixel[1]+pixel[2]
-          name.push(data)
-        }
-        return name
-      }
-
-      function measure(){
-        diff = []
-        for (i=0;i<start.length;i++){
-          var difference = start[i] - finish[i]
-          difference = difference<0?difference*-1:difference
-          diff.push(difference)
-        }
-        pass = []
-        for (i=0;i<diff.length;i++){
-          if (diff[i] >= tolerance) {
-            pass.push(diff[i])
-          }
-        }
-        if (pass.length >= numPoints){
-          document.querySelector('a').innerHTML = seed
-          document.querySelector('a').href = 'http://tomhodgins.github.io/shaderandom/toyshader.html#'+btoa(seed)
-          console.log('passed with:\n\n'+seed)
-        } else {
-          failed++
-          document.querySelector('a').innerHTML = failed+' failed'
-          seed = 'fragColor = VEC4;'
-          console.log('failed')
-          setTimeout(generate())
-        }
-      }
+      sample(start)
+      setTimeout(function(){sample(finish)},1000)
 
     }
 
   }
 
+  function sample(name){
+    for(i=0;i<100;i++){
+      var x = ~~(i%10*(a.width/9.005)),
+          y = ~~(~~(i/10)*(a.height/9.005)),
+          pixel = new Uint8Array(4),
+          data = 0
+      g.readPixels(x,y,1,1,g.RGBA,g.UNSIGNED_BYTE,pixel)
+      data = pixel[0]+pixel[1]+pixel[2]
+      name.push(data)
+    }
+    if (name == finish){
+      console.log(name)
+      measure()
+    }
+  }
+  function measure(){
+    diff = []
+    for (i=0;i<start.length;i++){
+      var difference = start[i] - finish[i]
+      difference = difference<0?difference*-1:difference
+      diff.push(difference)
+    }
+    pass = []
+    for (i=0;i<diff.length;i++){
+      if (diff[i] >= tolerance) {
+        pass.push(diff[i])
+      }
+    }
+    if (pass.length >= numPoints){
+      document.querySelector('a').innerHTML = seed
+      document.querySelector('a').href = 'http://tomhodgins.github.io/shaderandom/toyshader.html#'+btoa(seed)
+      console.log('passed with pass.length '+pass.length+':\n\n'+seed+ ' and ')
+    } else {
+      failed++
+      document.querySelector('a').innerHTML = failed+' failed'
+      seed = 'fragColor = VEC4;'
+      console.log('failed with only '+pass.length)
+      setTimeout(generate())
+    }
+  }
 </script>
