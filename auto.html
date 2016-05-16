@@ -7,7 +7,7 @@
 
   // Measure changes
   var numPoints = 30,
-      tolerance = 125,
+      tolerance = 175,
       failed = 0
 
   // Generate shader
@@ -79,11 +79,11 @@
         requestAnimationFrame(L)
       })();
 
-      sample(start)
+      setTimeout(sample(start),500)
       setTimeout(function(){
         sample(finish);
         measure()
-      },1000)
+      },1500)
 
       function sample(name){
         for(i=0;i<100;i++){
