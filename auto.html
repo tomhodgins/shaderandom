@@ -48,7 +48,7 @@
     seed = seed.replace(/FLOAT/g, function(){return Math.floor(Math.random()*2) + "." + Math.floor(Math.random()*10)});
 
     // Reset seed if it's too simple or too long
-    if((oldseed == seed && seed.length < 90) || seed.length > 500){
+    if((oldseed == seed && seed.length < 90) || seed.length > 2000){
       seed = "fragColor = VEC4;";
     }
 
