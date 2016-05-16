@@ -120,7 +120,7 @@
       }
     }
     if (pass.length >= numPoints){
-      document.querySelector('a').innerHTML = seed
+      document.querySelector('a').innerHTML = seed.replace(/gl_FragCoord/g,'fragCoord')
       document.querySelector('a').href = 'http://tomhodgins.github.io/shaderandom/toyshader.html#'+btoa(seed)
       console.log('passed with pass.length '+pass.length+':\n\n'+seed+ ' and ')
     } else {
